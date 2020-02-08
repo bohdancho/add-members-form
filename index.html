@@ -84,28 +84,30 @@
 	display: none;
 }
 	</style>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=11, IE=10, IE=9, ie=8, ie=7">
 </head>
 
 <body>
 
 	<form class="line">
 
-		<div>Ваш E-mail:<br /> <input type="email" name="email" placeholder="Ваш E-mail" required /></div>
+		<div>Ваш E-mail:<br /> <input type="email" name="email" placeholder="Ваш E-mail" required="true" /></div>
 
 		<div><b>Участники</b></div>
 
 		<div class="client clear" id="1">
 			<div>Имя и фамилия:<br /> <input type="text" name="1[name]" onkeyup="this.value = this.value.toUpperCase();"
-					required /></div>
+					required="true" /></div>
 			<div>Пол:<br />
-				<select name="1[gender]" required>
+				<select name="1[gender]" required="true">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select name="1[nationality]" required>
+				<select name="1[nationality]" required="true">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -116,7 +118,7 @@
 		<!--1-->
 
 		<div class="client clear client-hidden" id="2">
-			<p><span onclick="delUser(this)" class="spanlnk">2Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">2Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="2[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -138,7 +140,7 @@
 		<!--2-->
 
 		<div class="client clear client-hidden" id="3">
-			<p><span onclick="delUser(this)" class="spanlnk">3Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">3Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="3[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -160,7 +162,7 @@
 		<!--3-->
 
 		<div class="client clear client-hidden" id="4">
-			<p><span onclick="delUser(this)" class="spanlnk">4Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">4Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="4[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -182,7 +184,7 @@
 		<!--4-->
 
 		<div class="client clear client-hidden" id="5">
-			<p><span onclick="delUser(this)" class="spanlnk">5Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">5Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="5[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -204,7 +206,7 @@
 		<!--5-->
 
 		<div class="client clear client-hidden" id="6">
-			<p><span onclick="delUser(this)" class="spanlnk">6Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">6Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="6[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -226,7 +228,7 @@
 		<!--6-->
 
 		<div class="client clear client-hidden" id="7">
-			<p><span onclick="delUser(this)" class="spanlnk">7Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">7Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="7[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -248,7 +250,7 @@
 		<!--7-->
 
 		<div class="client clear client-hidden" id="8">
-			<p><span onclick="delUser(this)" class="spanlnk">8Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">8Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="8[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -270,7 +272,7 @@
 		<!--8-->
 
 		<div class="client clear client-hidden" id="9">
-			<p><span onclick="delUser(this)" class="spanlnk">9Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">9Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="9[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -292,7 +294,7 @@
 		<!--9-->
 
 		<div class="client clear client-hidden" id="10">
-			<p><span onclick="delUser(this)" class="spanlnk">10Удалить</a></p>
+			<p><span onclick="delUser(this)" class="spanlnk">10Удалить</span></p>
 			<div>Имя и фамилия:<br /> <input type="text" name="10[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
@@ -327,7 +329,7 @@
 			var currentClientInputs = currentClient.querySelectorAll('input');
 			var currentClientSelects = currentClient.querySelectorAll('select');
 			
-			currentClient.classList.remove("client-hidden");
+			currentClient.className = "client clear";
 
 			for (var i = 0; i < currentClientInputs.length; i++) {
 				currentClientInputs[i].setAttribute("required", "");
@@ -337,7 +339,7 @@
 			}
 
 			if (hiddenClients.length === 1) {
-				addBtn.classList.add("btn-hidden");
+				addBtn.className += "btn-hidden";
 			}
 		}
 
@@ -356,10 +358,10 @@
 				currentClientSelects[i].querySelectorAll("option")[0].selected = "selected";
 			}
 
-			if ( addBtn.classList.contains("btn-hidden") ) {
-				addBtn.classList.remove("btn-hidden")
+			if ( addBtn.className === "btn-hidden" ) {
+				addBtn.className = "";
 			}
-			currentClient.classList.add('client-hidden');
+			currentClient.className += " client-hidden";
 		}
 	</script>
 </body>
