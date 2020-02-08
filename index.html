@@ -321,19 +321,30 @@
 	</form>
 
 	<script>
-		var addBtn = document.getElementById("addHuman");
-		var removeBtns = document.getElementsByClassName("js-remove");
+		var addBtn = document.querySelector("#addHuman");
+		var removeBtns = document.querySelectorAll(".js-remove");
 
 		addBtn.addEventListener("click", function() {
 
-			var hiddenClients = document.getElementsByClassName("client-hidden");
+			var hiddenClients = document.querySelectorAll(".client-hidden");
 			var currentClient = hiddenClients[0];
 			currentClient.classList.remove("client-hidden");
-			currentClient.querySelector(".client-name").setAttribute("required", "");
-			currentClient.querySelector(".client-gender").setAttribute("required", "");
-			currentClient.querySelector(".client-nationality").setAttribute("required", "");
+
+			var currentClientInputs = currentClient.querySelectorAll('input');
+			var currentClientOptions = currentClient.querySelectorAll('select');
+
+			for (var i = 0; i < currentClientInputs.length; i++) {
+				currentClientInputs[i].setAttribute("required", "");
+			}
+			for (var i = 0; i < currentClientOptions.length; i++) {
+				currentClientOptions[i].setAttribute("required", "");
+			}
+
+			// currentClient.querySelector(".client-name").setAttribute("required", "");
+			// currentClient.querySelector(".client-gender").setAttribute("required", "");
+			// currentClient.querySelector(".client-nationality").setAttribute("required", "");
 	
-			if (hiddenClients.length === 0) {
+			if (hiddenClients.length === 1) {
 				addBtn.classList.add("btn-hidden");
 			}
 	
@@ -342,18 +353,30 @@
 		for (var i = 0; i < removeBtns.length; i++) {
 			removeBtns[i].addEventListener("click", function() {
 				
+				var currentClient = this.parentElement.parentElement;
+				var currentClientInputs = currentClient.querySelectorAll('input');
+				var currentClientOptions = currentClient.querySelectorAll('select');
+
+				for (var i = 0; i < currentClientInputs.length; i++) {
+					currentClientInputs[i].removeAttribute("required", "");
+					currentClientInputs[i].value = "";
+				}
+				for (var i = 0; i < currentClientOptions.length; i++) {
+					currentClientOptions[i].removeAttribute("required", "");
+					currentClientOptions[i].querySelectorAll("option")[0].selected = "selected";
+				}
+
 				if ( addBtn.classList.contains("btn-hidden") ) {
 					addBtn.classList.remove("btn-hidden")
 				}
-				
-				var currentClient = this.parentElement.parentElement;
 				currentClient.classList.add('client-hidden');
-				currentClient.querySelector(".client-name").removeAttribute("required");
-				currentClient.querySelector(".client-name").value = "";
-				currentClient.querySelector(".client-gender").removeAttribute("required");
-				currentClient.querySelector(".client-gender").getElementsByTagName("option")[0].selected = "selected";
-				currentClient.querySelector(".client-nationality").removeAttribute("required");
-				currentClient.querySelector(".client-nationality").getElementsByTagName("option")[0].selected = "selected";
+				
+				// currentClient.querySelector(".client-name").removeAttribute("required");
+				// currentClient.querySelector(".client-name").value = "";
+				// currentClient.querySelector(".client-gender").removeAttribute("required");
+				// currentClient.querySelector(".client-gender").getElementsByTagName("option")[0].selected = "selected";
+				// currentClient.querySelector(".client-nationality").removeAttribute("required");
+				// currentClient.querySelector(".client-nationality").getElementsByTagName("option")[0].selected = "selected";
 			
 			});
 		}
