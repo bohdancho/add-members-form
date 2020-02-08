@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 
 <head>
 	<title>HTML FORM</title>
@@ -75,16 +75,15 @@
 			padding: 10px
 		}
 
-		.client-hidden, .btn-hidden {
-			display: none;
-		}
-
 		.spanlnk {
 			border-bottom: 1px dotted blue;
 			cursor: pointer
 		}
+
+.client-hidden, .btn-hidden {
+	display: none;
+}
 	</style>
-	<meta charset="UTF-8">
 </head>
 
 <body>
@@ -95,18 +94,18 @@
 
 		<div><b>Участники</b></div>
 
-		<div class="client clear">
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="1[name]" onkeyup="this.value = this.value.toUpperCase();"
+		<div class="client clear" id="1">
+			<div>Имя и фамилия:<br /> <input type="text" name="1[name]" onkeyup="this.value = this.value.toUpperCase();"
 					required /></div>
 			<div>Пол:<br />
-				<select class="client-gender" name="1[gender]" required>
+				<select name="1[gender]" required>
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="1[nationality]" required>
+				<select name="1[nationality]" required>
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -116,19 +115,19 @@
 		</div>
 		<!--1-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">2Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="2[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="2">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="2[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="2[gender]">
+				<select name="2[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="2[nationality]">
+				<select name="2[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -138,19 +137,19 @@
 		</div>
 		<!--2-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">3Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="3[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="3">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="3[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="3[gender]">
+				<select name="3[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="3[nationality]">
+				<select name="3[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -160,19 +159,19 @@
 		</div>
 		<!--3-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">4Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="4[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="4">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="4[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="4[gender]">
+				<select name="4[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="4[nationality]">
+				<select name="4[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -182,19 +181,19 @@
 		</div>
 		<!--4-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">5Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="5[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="5">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="5[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="5[gender]">
+				<select name="5[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="5[nationality]">
+				<select name="5[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -204,19 +203,19 @@
 		</div>
 		<!--5-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">6Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="6[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="6">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="6[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="6[gender]">
+				<select name="6[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="6[nationality]">
+				<select name="6[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -226,19 +225,19 @@
 		</div>
 		<!--6-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">7Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="7[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="7">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="7[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="7[gender]">
+				<select name="7[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="7[nationality]">
+				<select name="7[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -248,19 +247,19 @@
 		</div>
 		<!--7-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">8Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="8[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="8">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="8[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="8[gender]">
+				<select name="8[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="8[nationality]">
+				<select name="8[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -270,19 +269,19 @@
 		</div>
 		<!--8-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">9Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="9[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="9">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="9[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="9[gender]">
+				<select name="9[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="9[nationality]">
+				<select name="9[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -292,19 +291,19 @@
 		</div>
 		<!--9-->
 
-		<div class="client clear client-hidden">
-			<p><span class="spanlnk js-remove">10Удалить</a></p>
-			<div>Имя и фамилия:<br /> <input class="client-name" type="text" name="10[name]" onkeyup="this.value = this.value.toUpperCase();" />
+		<div class="client clear client-hidden" id="10">
+			<p><span onclick="delUser(this)" class="spanlnk">Удалить</a></p>
+			<div>Имя и фамилия:<br /> <input type="text" name="10[name]" onkeyup="this.value = this.value.toUpperCase();" />
 			</div>
 			<div>Пол:<br />
-				<select class="client-gender" name="10[gender]">
+				<select name="10[gender]">
 					<option value="">Выбрать</option>
 					<option value="Male">Мужской</option>
 					<option value="Female">Женский</option>
 				</select>
 			</div>
 			<div>Гражданство: <br />
-				<select class="client-nationality" name="10[nationality]">
+				<select name="10[nationality]">
 					<option value="">Выбрать</option>
 					<option value="Russia">Russia</option>
 					<option value="Kazakhstan">Kazakhstan</option>
@@ -314,73 +313,55 @@
 		</div>
 		<!--10-->
 
-		<div><span class="spanlnk" id="addHuman">+ Добавить человека</span></div>
+		<div><span onclick="addUser()" class="spanlnk">+ Добавить человека</span></div>
 
-		<input type="submit" name="ok" value="Отправить данные" />
+		<input type="submit" name="ok" id="addHuman" value="Отправить данные" />
 
 	</form>
 
 	<script>
-		var addBtn = document.querySelector("#addHuman");
-		var removeBtns = document.querySelectorAll(".js-remove");
-
-		addBtn.addEventListener("click", function() {
-
+		function addUser() {
+			var addBtn = document.querySelector("#addHuman");			
 			var hiddenClients = document.querySelectorAll(".client-hidden");
 			var currentClient = hiddenClients[0];
-			currentClient.classList.remove("client-hidden");
-
 			var currentClientInputs = currentClient.querySelectorAll('input');
-			var currentClientOptions = currentClient.querySelectorAll('select');
+			var currentClientSelects = currentClient.querySelectorAll('select');
+			
+			currentClient.classList.remove("client-hidden");
 
 			for (var i = 0; i < currentClientInputs.length; i++) {
 				currentClientInputs[i].setAttribute("required", "");
 			}
-			for (var i = 0; i < currentClientOptions.length; i++) {
-				currentClientOptions[i].setAttribute("required", "");
+			for (var i = 0; i < currentClientSelects.length; i++) {
+				currentClientSelects[i].setAttribute("required", "");
 			}
 
-			// currentClient.querySelector(".client-name").setAttribute("required", "");
-			// currentClient.querySelector(".client-gender").setAttribute("required", "");
-			// currentClient.querySelector(".client-nationality").setAttribute("required", "");
-	
 			if (hiddenClients.length === 1) {
 				addBtn.classList.add("btn-hidden");
 			}
-	
-		});
-		
-		for (var i = 0; i < removeBtns.length; i++) {
-			removeBtns[i].addEventListener("click", function() {
-				
-				var currentClient = this.parentElement.parentElement;
-				var currentClientInputs = currentClient.querySelectorAll('input');
-				var currentClientOptions = currentClient.querySelectorAll('select');
-
-				for (var i = 0; i < currentClientInputs.length; i++) {
-					currentClientInputs[i].removeAttribute("required", "");
-					currentClientInputs[i].value = "";
-				}
-				for (var i = 0; i < currentClientOptions.length; i++) {
-					currentClientOptions[i].removeAttribute("required", "");
-					currentClientOptions[i].querySelectorAll("option")[0].selected = "selected";
-				}
-
-				if ( addBtn.classList.contains("btn-hidden") ) {
-					addBtn.classList.remove("btn-hidden")
-				}
-				currentClient.classList.add('client-hidden');
-				
-				// currentClient.querySelector(".client-name").removeAttribute("required");
-				// currentClient.querySelector(".client-name").value = "";
-				// currentClient.querySelector(".client-gender").removeAttribute("required");
-				// currentClient.querySelector(".client-gender").getElementsByTagName("option")[0].selected = "selected";
-				// currentClient.querySelector(".client-nationality").removeAttribute("required");
-				// currentClient.querySelector(".client-nationality").getElementsByTagName("option")[0].selected = "selected";
-			
-			});
 		}
-</script>
+
+		function delUser(e) {
+			var addBtn = document.querySelector("#addHuman");
+			var currentClient = e.parentElement.parentElement;
+			var currentClientInputs = currentClient.querySelectorAll('input');
+			var currentClientSelects = currentClient.querySelectorAll('select');
+
+			for (var i = 0; i < currentClientInputs.length; i++) {
+				currentClientInputs[i].removeAttribute("required", "");
+				currentClientInputs[i].value = "";
+			}
+			for (var i = 0; i < currentClientSelects.length; i++) {
+				currentClientSelects[i].removeAttribute("required", "");
+				currentClientSelects[i].querySelectorAll("option")[0].selected = "selected";
+			}
+
+			if ( addBtn.classList.contains("btn-hidden") ) {
+				addBtn.classList.remove("btn-hidden")
+			}
+			currentClient.classList.add('client-hidden');
+		}
+	</script>
 </body>
 
 </html>
