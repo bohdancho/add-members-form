@@ -384,13 +384,13 @@
 					console.log(name);
 					switch(type) {
 						case "mail":
-							alert("Введите почтовый адрес");
+							alert("Не заполнен почтовый адрес");
 							break;
 						case "[name]":
-							alert("Введите имя " + name[0] + " человека");
+							alert("Не заполнено имя " + name[0] + " человека");
 							break;
 						case "0[name]":
-							alert("Введите имя " + name[0] + name[1] + " человека");
+							alert("Не заполнено имя " + name[0] + name[1] + " человека");
 							break;
 					}
 					event.preventDefault ? event.preventDefault() : (event.returnValue = false);
@@ -405,16 +405,16 @@
 					
 					switch(type) {
 						case "[gender]":
-							alert("Выберите пол " + name[0] + " человека");
+							alert("Не заполнен пол " + name[0] + " человека");
 							break;
 						case "[nationality]":
-							alert("Выберите гражданство " + name[0] + " человека");
+							alert("Не заполнено гражданство " + name[0] + " человека");
 							break;
 						case "0[gender]":
-							alert("Выберите пол " + name[0] + name[1] + " человека");
+							alert("Не заполнен пол " + name[0] + name[1] + " человека");
 							break;
 						case "0[nationality]":
-							alert("Выберите гражданство " + name[0] + name[1] + " человека");
+							alert("Не заполнено гражданство " + name[0] + name[1] + " человека");
 							break;
 					}
 					event.preventDefault ? event.preventDefault() : (event.returnValue = false);
