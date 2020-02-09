@@ -85,12 +85,11 @@
 }
 	</style>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=11, IE=10, IE=9, ie=8, ie=7">
 </head>
 
 <body>
 
-	<form class="line">
+	<form class="line" id="myForm" onsubmit="validateOnSubmit(event)">
 
 		<div>Ваш E-mail:<br /> <input type="email" name="email" placeholder="Ваш E-mail" required="true" /></div>
 
@@ -315,9 +314,9 @@
 		</div>
 		<!--10-->
 
-		<div><span onclick="addUser()" class="spanlnk">+ Добавить человека</span></div>
+		<div><span onclick="addUser()" id="addHuman" class="spanlnk">+ Добавить человека</span></div>
 
-		<input type="submit" name="ok" id="addHuman" value="Отправить данные" />
+		<input type="submit" name="ok" value="Отправить данные" />
 
 	</form>
 
@@ -326,10 +325,10 @@
 			var addBtn = document.querySelector("#addHuman");			
 			var hiddenClients = document.querySelectorAll(".client-hidden");
 			var currentClient = hiddenClients[0];
-			var currentClientInputs = currentClient.querySelectorAll('input');
-			var currentClientSelects = currentClient.querySelectorAll('select');
+			var currentClientInputs = currentClient.querySelectorAll("input");
+			var currentClientSelects = currentClient.querySelectorAll("select");
 			
-			currentClient.className = "client clear";
+			currentClient.className = currentClient.className.replace(/\bclient-hidden\b/g, "");
 
 			for (var i = 0; i < currentClientInputs.length; i++) {
 				currentClientInputs[i].setAttribute("required", "");
@@ -339,15 +338,15 @@
 			}
 
 			if (hiddenClients.length === 1) {
-				addBtn.className += "btn-hidden";
+				addBtn.className += " btn-hidden";
 			}
 		}
 
 		function delUser(e) {
 			var addBtn = document.querySelector("#addHuman");
 			var currentClient = e.parentElement.parentElement;
-			var currentClientInputs = currentClient.querySelectorAll('input');
-			var currentClientSelects = currentClient.querySelectorAll('select');
+			var currentClientInputs = currentClient.querySelectorAll("input");
+			var currentClientSelects = currentClient.querySelectorAll("select");
 
 			for (var i = 0; i < currentClientInputs.length; i++) {
 				currentClientInputs[i].removeAttribute("required", "");
@@ -357,13 +356,75 @@
 				currentClientSelects[i].removeAttribute("required", "");
 				currentClientSelects[i].querySelectorAll("option")[0].selected = "selected";
 			}
-
-			if ( addBtn.className === "btn-hidden" ) {
-				addBtn.className = "";
-			}
+			
+			addBtn.className = addBtn.className.replace(/\bbtn-hidden\b/g, "");
+			
 			currentClient.className += " client-hidden";
 		}
 	</script>
+
+	<script>
+		function validateOnSubmit(event) {
+			var currentForm = event.target;
+			var requiredInputs = currentForm.querySelectorAll("input[required]");
+			var requiredSelects = currentForm.querySelectorAll("select[required]");
+
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if (!re.test(requiredInputs[0].value)) {
+				alert("Введите корректный почтовый адрес");
+				event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+				return false;
+			}
+
+			for (var i = 0; i < requiredInputs.length; i++) {
+				if (requiredInputs[i].value == "") {
+					var name = requiredInputs[i].name;
+					var type = name.substr(1);
+					
+					console.log(name);
+					switch(type) {
+						case "mail":
+							alert("Введите почтовый адрес");
+							break;
+						case "[name]":
+							alert("Введите имя " + name[0] + " человека");
+							break;
+						case "0[name]":
+							alert("Введите имя " + name[0] + name[1] + " человека");
+							break;
+					}
+					event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+					return false;
+				}
+			}
+
+			for (var i = 0; i < requiredSelects.length; i++) {
+				if (requiredSelects[i].selectedIndex === 0) {
+					var name = requiredSelects[i].name;
+					var type = name.substr(1);
+					
+					switch(type) {
+						case "[gender]":
+							alert("Выберите пол " + name[0] + " человека");
+							break;
+						case "[nationality]":
+							alert("Выберите гражданство " + name[0] + " человека");
+							break;
+						case "0[gender]":
+							alert("Выберите пол " + name[0] + name[1] + " человека");
+							break;
+						case "0[nationality]":
+							alert("Выберите гражданство " + name[0] + name[1] + " человека");
+							break;
+					}
+					event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+					return false;
+				}
+			}
+
+		}
+	</script>
+
 </body>
 
 </html>
