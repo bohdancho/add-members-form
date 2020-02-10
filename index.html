@@ -379,29 +379,33 @@
 			}
 
 			for (var i = 0; i < requiredInputs.length; i++) {
-				if (requiredInputs[i].value == "") {
-					var userName = requiredInputs[i].name;
-					var userNumber = parseInt(userName, 10).toString();
-					var userType = userName.substr(userNumber.length);
-					var userTypeText = textsList[ namesList.indexOf(userType) ];
-
-					alert("Не заполнено " + userTypeText + " " + userNumber + " человека" );
-					event.preventDefault ? event.preventDefault() : (event.returnValue = false);
-					return false;
+				if (requiredInputs[i].value !== "") {
+					continue;
 				}
+				
+				var userName = requiredInputs[i].name;
+				var userNumber = parseInt(userName, 10).toString();
+				var userType = userName.substr(userNumber.length);
+				var userTypeText = textsList[ namesList.indexOf(userType) ];
+
+				alert("Не заполнено " + userTypeText + " " + userNumber + " человека" );
+				event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+				return false;
 			}
 
 			for (var i = 0; i < requiredSelects.length; i++) {
-				if (requiredSelects[i].selectedIndex === 0) {
-					var userName = requiredSelects[i].name;
-					var userNumber = parseInt(userName, 10).toString();
-					var userType = userName.substr(userNumber.length);
-					var userTypeText = textsList[ namesList.indexOf(userType) ];
-
-					alert("Не заполнено " + userTypeText + " " + userNumber + " человека" );
-					event.preventDefault ? event.preventDefault() : (event.returnValue = false);
-					return false;
+				if (requiredSelects[i].selectedIndex !== 0) {
+					continue;
 				}
+				
+				var userName = requiredSelects[i].name;
+				var userNumber = parseInt(userName, 10).toString();
+				var userType = userName.substr(userNumber.length);
+				var userTypeText = textsList[ namesList.indexOf(userType) ];
+
+				alert("Не заполнено " + userTypeText + " " + userNumber + " человека" );
+				event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+				return false;
 			}
 
 		}
